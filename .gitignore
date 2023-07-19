@@ -1,0 +1,8 @@
+# Ignorar el archivo SFA001.csv
+SFA001.csv
+
+# Ignorar el directorio spark
+spark/
+
+# Ignorar el directorio data
+data/

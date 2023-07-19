@@ -1,0 +1,38 @@
+version: '3'
+services:
+  master:
+    build:
+      context: .
+    ports:
+      - 8080:8080
+      - 7077:7077
+    volumes:
+      - ./data:/opt/data
+    networks:
+      my_network:
+        ipv4_address: 192.168.10.10
+
+  slave1:
+    build:
+      context: .
+    volumes:
+      - ./data:/opt/data
+    networks:
+      my_network:
+        ipv4_address: 192.168.10.11
+
+  slave2:
+    build:
+      context: .
+    volumes:
+      - ./data:/opt/data
+    networks:
+      my_network:
+        ipv4_address: 192.168.10.12
+
+networks:
+  my_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.10.0/24
